@@ -34,7 +34,7 @@ body {
 }
 
 /* Cursor */
-.cursor {
+/* .cursor {
     position: fixed;
     width: 20px;
     height: 20px;
@@ -45,7 +45,7 @@ body {
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease;
-}
+} */
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
