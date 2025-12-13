@@ -1,0 +1,224 @@
+/* Contact Section Styles */
+.contact-section {
+    background: 
+        linear-gradient(180deg, var(--darker) 0%, rgba(30, 27, 75, 0.25) 100%),
+        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info {
+    padding-right: 30px;
+}
+
+.contact-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: var(--light);
+    background: linear-gradient(135deg, var(--light) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contact-info p {
+    color: var(--gray);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    background: rgba(255, 255, 255, 0.015);
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 2px solid var(--secondary);
+}
+
+.contact-methods {
+    margin-bottom: 30px;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(30, 27, 75, 0.25);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.contact-method:hover {
+    transform: translateX(6px);
+    border-color: var(--primary);
+    background: rgba(30, 27, 75, 0.4);
+}
+
+.contact-method i {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(99, 102, 241, 0.25);
+}
+
+.contact-method span {
+    font-weight: 500;
+    color: var(--light);
+    font-size: 0.95rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(30, 27, 75, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-link i {
+    position: relative;
+    z-index: 1;
+    color: var(--primary-light);
+    transition: color 0.2s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 8px 20px rgba(99, 102, 241, 0.3),
+        0 0 0 1px rgba(99, 102, 241, 0.15);
+}
+
+.social-link:hover::before {
+    opacity: 1;
+}
+
+.social-link:hover i {
+    color: white;
+}
+
+.contact-form {
+    background: rgba(30, 27, 75, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.form-status {
+    margin: 16px 0;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.form-status.success {
+    background: rgba(34, 197, 94, 0.08);
+    color: var(--success);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-status.error {
+    background: rgba(239, 68, 68, 0.08);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.form-status.loading {
+    background: rgba(245, 158, 11, 0.08);
+    color: var(--warning);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.btn.loading .btn-text {
+    opacity: 0;
+}
+
+.btn.loading .btn-loader {
+    display: block;
+}
+
+/* Responsive Contact */
+@media (max-width: 992px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-info {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-form {
+        padding: 20px 16px;
+    }
+}

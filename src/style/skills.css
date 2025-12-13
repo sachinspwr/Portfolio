@@ -1,0 +1,128 @@
+/* Skills Section Styles */
+.skills-section {
+    background: 
+        linear-gradient(180deg, rgba(30, 27, 75, 0.25) 0%, var(--darker) 100%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background: rgba(30, 27, 75, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.skill-category:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.25);
+}
+
+.skill-category:hover::before {
+    opacity: 0.08;
+}
+
+.skill-category-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--primary-light);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.skill-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--gradient-1);
+    border-radius: 1px;
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 8px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--light);
+    font-size: 0.9rem;
+}
+
+.skill-name::before {
+    content: '▸';
+    position: absolute;
+    left: -6px;
+    color: var(--primary-light);
+    font-size: 0.7rem;
+}
+
+.skill-bar {
+    height: 6px;
+    background: linear-gradient(90deg, 
+        var(--primary) 0%, 
+        var(--secondary) 50%, 
+        var(--accent) 100%);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+/* Responsive Skills */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

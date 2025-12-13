@@ -1,0 +1,303 @@
+/* Hire Me Component Styles */
+.hire-me-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.hire-me-button {
+    background: var(--gradient-1);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.hire-me-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hire-me-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
+}
+
+.hire-me-button:hover::before {
+    opacity: 1;
+}
+
+.hire-me-button i {
+    position: relative;
+    z-index: 1;
+}
+
+.hire-me-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    animation: pulse 2s infinite;
+    box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+}
+
+.hire-me-form-wrapper {
+    background: rgba(30, 27, 75, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 380px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideIn 0.3s ease;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    z-index: +10;
+}
+
+.hire-me-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hire-me-header h3 {
+    color: var(--light);
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-light), var(--light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--gray);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--light);
+    transform: rotate(90deg);
+}
+
+.hire-me-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hire-me-form .form-group {
+    margin-bottom: 0;
+}
+
+.hire-me-form input,
+.hire-me-form select,
+.hire-me-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--light);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.hire-me-form input:focus,
+.hire-me-form select:focus,
+.hire-me-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.hire-me-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23818cf8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.hire-me-form textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.hire-me-form .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.hire-me-form .form-row .form-group {
+    flex: 1;
+}
+
+.hire-me-form .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.hire-me-form .btn i {
+    margin-right: 8px;
+}
+
+.hire-me-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.hire-me-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.hire-me-info p:last-child {
+    margin-bottom: 0;
+}
+
+.hire-me-info i {
+    color: var(--primary-light);
+    font-size: 0.8rem;
+}
+
+/* Form Status */
+.form-status.success {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(236, 72, 153, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+    }
+}
+
+/* Responsive Hire Me */
+@media (max-width: 768px) {
+    .hire-me-widget {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .hire-me-form-wrapper {
+        width: 340px;
+        padding: 20px;
+        bottom: 60px;
+        z-index: +4;
+    }
+    
+    .hire-me-form .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hire-me-widget {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .hire-me-form-wrapper {
+        width: 300px;
+        right: -10px;
+    }
+    
+    .hire-me-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .hire-me-header h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .hire-me-form-wrapper {
+        background: rgba(15, 23, 42, 0.95);
+    }
+}
