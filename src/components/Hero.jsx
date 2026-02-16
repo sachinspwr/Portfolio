@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="hero-content">
         <h1 className="hero-title">Sachin Pawar</h1>
         <h2 className="hero-subtitle">
-          Full-Stack Developer | MERN-Stack Developer
+          Back End Developer
         </h2>
         <p className="hero-text">
           Software Engineer with Expertise in API Development & System Design, Spring Boot , REST APIs ,Cloud-Ready Systems

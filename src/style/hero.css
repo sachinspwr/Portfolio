@@ -63,10 +63,12 @@
 .hero-subtitle {
     font-size: 1.3rem;
     margin-bottom: 16px;
-    color: var(--primary-light);
+    color: transparent;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
     animation: fadeInUp 0.8s ease 0.1s both;
     font-weight: 500;
-    opacity: 0.9;
+    opacity: 2.0;
 }
 
 .hero-text {

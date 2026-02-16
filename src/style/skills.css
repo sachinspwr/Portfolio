@@ -1,4 +1,4 @@
-/* Skills Section Styles */
+/* Skills Section Styles
 .skills-section {
     background: 
         linear-gradient(180deg, rgba(30, 27, 75, 0.25) 0%, var(--darker) 100%),
@@ -117,6 +117,104 @@
         rgba(255, 255, 255, 0.2) 50%, 
         transparent 100%);
     animation: shimmer 2s infinite;
+} */
+
+/* Responsive Skills */
+/* @media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+} */
+
+/* Skills Section Styles */
+.skills-section {
+    background: 
+        linear-gradient(180deg, rgba(30, 27, 75, 0.25) 0%, var(--darker) 100%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.skill-card {
+    background: rgba(30, 27, 75, 0.3);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.25);
+}
+
+.skill-card:hover::before {
+    opacity: 0.08;
+}
+
+.skill-year {
+    font-size: 1.0rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.skill-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.skill-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: var(--gradient-1);
+    border-radius: 1px;
+}
+
+.skill-description {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: 5px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: left;
 }
 
 /* Responsive Skills */

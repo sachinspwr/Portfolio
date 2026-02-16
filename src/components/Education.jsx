@@ -16,8 +16,9 @@ const Education = () => {
         <div className="education-grid">
           {educationData.map((edu, index) => (
             <div key={index} className="education-card">
-              <div className="education-year">{edu.year}</div>
+              
               <h3 className="education-degree">{edu.degree}</h3>
+              <div className="education-year">{edu.year}</div>
               <p className="education-institute">{edu.institute}</p>
               <p className="education-grade">{edu.grade}</p>
             </div>

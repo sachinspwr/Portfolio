@@ -17,7 +17,12 @@ const Experience = () => {
                 Back-End Developer at Web Crypt Technologies | Pune
               </h3>
               
-              <h4 className="timeline-subtitle">
+      
+            </div>
+            
+          </div>
+            <div className="timeline-content">
+                <h4 className="timeline-subtitle">
                 * Test-Engine (Assessment & Testing Platform)
               </h4>
               <ul className="timeline-list">
@@ -79,6 +84,9 @@ const Experience = () => {
                   and code execution workflows.
                 </li>
               </ul>
+        </div>
+        <div className="timeline-content">
+            
 
               <h4 className="timeline-subtitle">
                 * Agri-Connect (Agri-Tech Platform)
@@ -126,8 +134,7 @@ const Experience = () => {
                   version control using Git-based workflows.
                 </li>
               </ul>
-            </div>
-          </div>
+        </div>
         </div>
       </div>
     </section>
