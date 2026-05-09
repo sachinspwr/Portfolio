@@ -16,6 +16,7 @@ const Footer = () => {
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
+            <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
           </div>
           <div className="footer-social">

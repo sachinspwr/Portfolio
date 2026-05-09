@@ -1,51 +1,46 @@
 import React, { useState } from 'react';
 import "../style/global.css";
 import "../style/hireme.css";
+import { API } from '../config/api';
 
 const HireMe = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
-    description: ''
+    name: '', email: '', company: '', projectType: '', budget: '', timeline: '', description: ''
   });
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Sending...');
-    
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('Project inquiry sent successfully! I\'ll get back to you within 24 hours.');
-      setIsFormVisible(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
-        description: ''
+    setLoading(true);
+    setStatus({ type: '', message: '' });
+    try {
+      const res = await fetch(API.hireMe, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        setStatus('');
-      }, 5000);
-    }, 2000);
+      if (res.ok) {
+        setStatus({ type: 'success', message: '✅ Inquiry sent! I\'ll get back to you within 24 hours.' });
+        setFormData({ name: '', email: '', company: '', projectType: '', budget: '', timeline: '', description: '' });
+        setTimeout(() => {
+          setIsFormVisible(false);
+          setStatus({ type: '', message: '' });
+        }, 4000);
+      } else {
+        setStatus({ type: 'error', message: '❌ Something went wrong. Please try again.' });
+      }
+    } catch (err) {
+      setStatus({ type: 'error', message: '❌ Unable to send. Please try again later.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const projectTypes = [
@@ -94,7 +89,9 @@ const HireMe = () => {
             </button>
           </div>
           
-          <div className="form-status success">{status}</div>
+          {status.message && (
+            <div className={`form-status ${status.type}`}>{status.message}</div>
+          )}
           
           <form className="hire-me-form" onSubmit={handleSubmit}>
             <div className="form-group">
@@ -184,9 +181,8 @@ const HireMe = () => {
               ></textarea>
             </div>
             
-            <button type="submit" className="btn btn-primary">
-              <i className="fas fa-paper-plane"></i>
-              Send Inquiry
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? '⏳ Sending...' : <><i className="fas fa-paper-plane"></i> Send Inquiry</>}
             </button>
           </form>
         

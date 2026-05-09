@@ -1,116 +1,188 @@
-/* Experience Section Styles */
+/* Experience Section */
 .experience-section {
-    background: 
+    background:
         linear-gradient(180deg, var(--darker) 0%, rgba(30, 27, 75, 0.25) 100%),
         radial-gradient(circle at 50% 30%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
 }
 
-.timeline {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-    display: flex;
-}
-
-.timeline-item:nth-child(odd) {
-    justify-content: flex-end;
-    padding-right: 40px;
-}
-
-.timeline-item:nth-child(even) {
-    justify-content: flex-start;
-    padding-left: 40px;
-}
-
-.timeline-date {
-    position: absolute;
-    top: -20px;
-    margin-left: 60%;
-    background: var(--gradient-2);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-weight: 500;
-    font-size: 0.85rem;
-    box-shadow: 
-        0 5px 15px rgba(99, 102, 241, 0.3),
-        0 2px 5px rgba(0, 0, 0, 0.15);
-    letter-spacing: 0.5px;
-    z-index: 2;
-}
-
-.timeline-item:nth-child(odd) .timeline-date {
-    right: -60px;
-}
-
-.timeline-item:nth-child(even) .timeline-date {
-    left: -60px;
-}
-
-.timeline-content {
+/* Organisation Card */
+.org-card {
     background: rgba(30, 27, 75, 0.4);
-    padding: 25px;
-    border-radius: 12px;
-    margin-top: 30px;
-    width: calc(100% - 40px);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 50px;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.timeline-content::before {
+.org-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 4px;
     height: 100%;
-    background: var(--gradient-3);
+    background: var(--gradient-1);
 }
 
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 15px 30px rgba(0, 0, 0, 0.25),
-        0 0 0 1px rgba(99, 102, 241, 0.15);
+.org-card:hover {
     border-color: rgba(99, 102, 241, 0.25);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
-.timeline-title {
-    font-size: 1.1rem;
-    margin-bottom: 0px;
-    color: var(--primary-light);
-    position: relative;
-    padding-left: 16px;
+.org-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.timeline-title::before {
-    content: '🚀';
-    position: absolute;
-    left: 0;
-    font-size: 0.85rem;
+.org-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 6px;
 }
 
-.timeline-subtitle {
-    font-size: 1rem;
-    margin: 20px 0 12px;
-    color: var(--accent);
-    font-weight: 500;
+.org-location {
+    color: var(--gray);
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
+    gap: 6px;
+}
+
+.org-location i {
+    color: var(--primary-light);
+}
+
+.org-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 8px;
 }
 
-.timeline-subtitle::before {
-    content: '⭐';
+.org-role {
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.org-duration {
+    color: var(--gray);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.org-type {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary-light);
+    padding: 4px 12px;
+    border-radius: 20px;
     font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.org-about {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.org-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.org-tech-badge {
+    background: rgba(30, 27, 75, 0.5);
+    color: var(--primary-light);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Projects Section */
+.projects-section {
+    background: rgba(30, 27, 75, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.projects-heading {
+    font-size: 1.3rem;
+    color: var(--light);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.project-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+}
+
+.project-tab {
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: var(--gray);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-tab:hover {
+    border-color: var(--primary-light);
+    color: var(--primary-light);
+}
+
+.project-tab.active {
+    background: var(--gradient-1);
+    border-color: transparent;
+    color: white;
+    font-weight: 600;
+}
+
+.project-content {
+    animation: fadeInUp 0.3s ease;
+}
+
+.project-name {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-name i {
+    color: var(--primary-light);
 }
 
 .timeline-list {
@@ -136,29 +208,22 @@
     line-height: 1.4;
 }
 
-/* Responsive Experience */
 @media (max-width: 768px) {
-    .timeline-item {
+    .org-header {
         flex-direction: column;
-        padding-left: 40px;
-        padding-right: 15px;
     }
-    
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        justify-content: flex-start;
-        padding-left: 40px;
-        padding-right: 15px;
+
+    .org-meta {
+        align-items: flex-start;
     }
-    
-    .timeline-content {
+
+    .project-tabs {
+        flex-direction: column;
+    }
+
+    .project-tab {
         width: 100%;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-date,
-    .timeline-item:nth-child(even) .timeline-date {
-        left: 40px;
-        right: auto;
-        transform: translateX(-50%);
+        text-align: left;
+        border-radius: 8px;
     }
 }

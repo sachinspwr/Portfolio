@@ -1,37 +1,44 @@
 import React, { useState } from 'react';
 import "../style/global.css";
 import "../style/contact.css";
+import { API } from '../config/api';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [status, setStatus] = useState('');
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setStatus('Sending...');
-    setTimeout(() => {
-      setStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 2000);
+    setLoading(true);
+    setStatus({ type: '', message: '' });
+    try {
+      const res = await fetch(API.sendMessage, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus({ type: 'success', message: '✅ Message sent successfully! I\'ll get back to you soon.' });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus({ type: 'error', message: '❌ Something went wrong. Please try again.' });
+      }
+    } catch (err) {
+      setStatus({ type: 'error', message: '❌ Unable to send message. Please try again later.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
-        <h2 className="section-title"><span>05.</span> Get In Touch</h2>
+        <h2 className="section-title"><span>06.</span> Get In Touch</h2>
         <div className="contact-content">
           <div className="contact-info">
             <h3 className="contact-subtitle">Let's Connect</h3>
@@ -121,11 +128,12 @@ const Contact = () => {
               ></textarea>
             </div>
             <div className="form-status" id="formStatus">
-              {status}
+              {status.message && (
+                <div className={`form-status ${status.type}`}>{status.message}</div>
+              )}
             </div>
-            <button type="submit" className="btn">
-              <span className="btn-text">Send Message</span>
-              <span className="btn-loader"></span>
+            <button type="submit" className="btn" disabled={loading}>
+              {loading ? <span className="btn-loader"></span> : <span className="btn-text">Send Message</span>}
             </button>
           </form>
         </div>

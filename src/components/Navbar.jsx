@@ -18,6 +18,7 @@ const Navbar = () => {
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
+          <li><a href="#publications">Publications</a></li>
           <li><a href="#contact">Contact</a></li>
           <li className="resume-download">
             <a
